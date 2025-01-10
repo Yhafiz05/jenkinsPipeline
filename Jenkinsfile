@@ -4,7 +4,7 @@ pipeline{
 
     stage('Checkout'){
       steps{
-        checkout scm : [$class: 'GitSCM', userRemoteConfigs:[[credentialsId : github-key, url : 'git@github.com:moss-n/multithreading-example-1.git']]]
+        checkout scm : [$class: 'GitSCM', userRemoteConfigs:[[credentialsId : 'github-key', url : 'git@github.com:moss-n/multithreading-example-1.git']]]
       }
     }
     stage('Build'){
