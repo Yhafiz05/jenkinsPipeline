@@ -1,7 +1,13 @@
 pipeline {
     agent any
     stages {
-
+        stage('Clone Repository') {
+            steps {
+                sh '''
+                GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" git clone git@github.com:Yhafiz05/jenkinsPipeline.git
+                '''
+            }
+        }
         stage('Checkout Codebase') {
             steps {
             checkout scm: [$class: 'GitSCM',
